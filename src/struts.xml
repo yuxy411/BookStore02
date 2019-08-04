@@ -127,7 +127,6 @@
         <action name="Search" class="Actions.BookAction" method="searchByName">
             <result type="redirect" name="success">
                 <param name="location">index.jsp</param>
-                <!--<param name="booklist">${booklist}</param>-->
             </result>
             <result type="redirect" name="fail">
                 <param name="location">index.jsp</param>

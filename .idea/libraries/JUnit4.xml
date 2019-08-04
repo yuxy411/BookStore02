@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="JUnit4">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/JUnit4.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <jarDirectory url="jar://$PROJECT_DIR$/web/WEB-INF/lib/JUnit4.zip!/" recursive="false" />
+  </library>
+</component>

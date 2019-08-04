@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <constant name="struts.enable.DynamicMethodInvocation" value="true"/>
+
+    <package name="default" namespace="/" extends="struts-default">
+        <!--
+               name:表单请求
+            -->
+          <action name="Login" class="Actions.LoginAction" method="login">
+            <!--响应结果type：响应类型 默认是dispatcer 转发                      &amp;id=${user.id}-->
+            <result type="redirect" name="login_success">index.jsp?username=${username}</result>
+              <result type="redirect" name="login">pages/user/login.jsp</result>
+          </action>
+        <action name="Register" class="Actions.RegisterAction" method="register">
+            <result type="redirect" name="regist_success">
+                <param name="location">pages/user/login.jsp</param>
+                <!--<param name="username">${user.username}</param>-->
+            </result>
+            <result type="redirect" name="regist">pages/user/regist.jsp</result>
+        </action>
+
+        <action name="Forget" class="Actions.QuestionAction" method="forget">
+            <!--响应结果type：响应类型 默认是dispatcer 转发                      &amp;id=${user.id}-->
+            <result type="redirect" name="forget_success">pages/user/question_password.jsp</result>
+            <result type="redirect" name="forget">pages/user/question.jsp</result>
+        </action>
+
+        <action name="Forget_password" class="Actions.QuestionAction" method="reSet">
+        <result type="redirect" name="reSet_success">
+            <param name="location">pages/user/login.jsp</param>
+            <param name="username">${user.username}</param>
+        </result>
+        <result type="redirect" name="reSet">pages/user/question.jsp</result>
+
+    </action>
+        <action name="displayBook" class="Actions.BookAction" method="displayBookAction">
+            <result type="redirect" name="success">
+                <param name="location">index.jsp</param>
+            </result>
+            <result type="redirect" name="fail">index.jsp</result>
+
+        </action>
+        <action name="displayBook_kind" class="Actions.BookAction" method="displayBookKindAction">
+            <result type="redirect" name="success">pages/book/search_success.jsp</result>
+            <result type="redirect" name="fail">index.jsp</result>
+
+        </action>
+        <action name="displayBook_Login_kind" class="Actions.BookAction" method="displayBookLoginKindAction">
+            <result type="redirect" name="success">pages/book/search_login_success.jsp</result>
+            <result type="redirect" name="fail">pages/user/login_success.jsp</result>
+
+        </action>
+
+        <action name="displayCart" class="Actions.CartAction" method="displayCartAction">
+            <result type="redirect" name="success">
+                <param name="location">pages/cart/cart.jsp</param>
+            </result>
+            <result type="redirect" name="fail">pages/cart/cart.jsp</result>
+
+        </action>
+        <action name="SubmitOrder" class="Actions.CartAction" method="submitOrderAction">
+            <result type="redirect" name="success">
+                <param name="location">pages/order/order.jsp</param>
+            </result>
+            <result type="redirect" name="fail">pages/cart/cart.jsp</result>
+
+        </action>
+        <action name="displayOrder" class="Actions.CartAction" method="displayOrderAction">
+        <result type="redirect" name="success">
+            <param name="location">pages/order/order.jsp</param>
+        </result>
+        <result type="redirect" name="fail">pages/order/order.jsp</result>
+
+    </action>
+        <action name="DeleteOrder" class="Actions.CartAction" method="deleteOrderAction">
+            <result type="redirect" name="success">
+                <param name="location">pages/order/order.jsp</param>
+            </result>
+            <result type="redirect" name="fail">pages/order/order.jsp</result>
+
+        </action>
+        <action name="Exit" class="Actions.LoginAction" method="exit">
+            <result type="redirect" name="success">
+                <param name="location">index.jsp</param>
+            </result>
+        </action>
+
+        <action name="AddCart" class="Actions.CartAction" method="addCart">
+            <result type="redirect" name="success">
+                <param name="location">pages/cart/cart.jsp</param>
+            </result>
+            <result type="redirect" name="fail">
+                <param name="location">pages/cart/cart.jsp</param>
+            </result>
+            <result type="redirect" name="unEnter">
+                <param name="location">pages/user/login.jsp</param>
+            </result>
+        </action>
+
+        <action name="SuNumber" class="Actions.CartAction" method="suNumber">
+        <result type="redirect" name="success">
+            <param name="location">pages/cart/cart.jsp</param>
+        </result>
+        <result type="redirect" name="fail">
+            <param name="location">pages/cart/cart.jsp</param>
+        </result>
+    </action>
+        <action name="AddNumber" class="Actions.CartAction" method="addNumber">
+            <result type="redirect" name="success">
+                <param name="location">pages/cart/cart.jsp</param>
+            </result>
+            <result type="redirect" name="fail">
+                <param name="location">pages/cart/cart.jsp</param>
+            </result>
+        </action>
+        <action name="Delete" class="Actions.CartAction" method="delete">
+            <result type="redirect" name="success">
+                <param name="location">pages/cart/cart.jsp</param>
+            </result>
+        </action>
+
+        <action name="Search" class="Actions.BookAction" method="searchByName">
+            <result type="redirect" name="success">
+                <param name="location">index.jsp</param>
+                <!--<param name="booklist">${booklist}</param>-->
+            </result>
+            <result type="redirect" name="fail">
+                <param name="location">index.jsp</param>
+            </result>
+        </action>
+
+    </package>
+
+
+</struts>

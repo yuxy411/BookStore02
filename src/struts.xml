@@ -8,9 +8,7 @@
     <constant name="struts.enable.DynamicMethodInvocation" value="true"/>
 
     <package name="default" namespace="/" extends="struts-default">
-        <!--
-               name:表单请求
-            -->
+
           <action name="Login" class="Actions.LoginAction" method="login">
             <!--响应结果type：响应类型 默认是dispatcer 转发                      &amp;id=${user.id}-->
             <result type="redirect" name="login_success">index.jsp?username=${username}</result>

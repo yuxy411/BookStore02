@@ -121,7 +121,7 @@
                 </div>
 
                 <div class="search-content">
-                    <%--筛选--%>
+
                     <div class="sort">
                         <li class="first"><a title="综合">综合排序</a></li>
                         <li><a title="销量">销量排序</a></li>

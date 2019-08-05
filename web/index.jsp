@@ -114,18 +114,7 @@
                                 </div>
                             </dl>
                         </li>
-                        <%--<li class="select-list">--%>
-                            <%--<dl id="select3">--%>
-                                <%--<dt class="am-badge am-round">选购热点</dt>--%>
-                                <%--<div class="dd-conent">--%>
-                                    <%--<dd class="select-all selected"><a href="search.jsp">全部</a></dd>--%>
-                                    <%--<dd><a href="#">古典名著</a></dd>--%>
-                                    <%--<dd><a href="#">浪漫小说</a></dd>--%>
-                                    <%--<dd><a href="#">励志图书</a></dd>--%>
-                                    <%--<dd><a href="#">日本动漫</a></dd>--%>
-                                <%--</div>--%>
-                            <%--</dl>--%>
-                        <%--</li>--%>
+
 
                     </ul>
                     <div class="clear"></div>

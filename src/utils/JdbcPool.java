@@ -14,11 +14,11 @@ import java.sql.SQLException;
 public class JdbcPool {
 
     private static ComboPooledDataSource dataSource=new ComboPooledDataSource();
+
     public static Connection getConnection(){
         Connection connection=null;
         try {
             connection=dataSource.getConnection();
-//            System.out.println("connection="+connection);
         } catch (SQLException e) {
             e.printStackTrace();
         }

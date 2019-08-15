@@ -28,8 +28,13 @@ public class BookDaoImpl extends BaseDao<Book> implements BookDao{
     }
 
     @Override
-    public List<Book> getBooksByKind(String kind) {
-        String sql="select * from tb_book where book_type="+kind;
+    public List<Book> getBooksByKind(String kind,int fromtype) {
+        String sql="";
+        if(fromtype==1){
+            sql="select * from tb_book where book_type like '"+kind+"%'";
+        }else{
+            sql="select * from tb_book where book_type like '%"+kind+"'";
+        }
         List<Book> beanList = getBeanList(sql);
         return beanList;
     }
@@ -40,7 +45,7 @@ public class BookDaoImpl extends BaseDao<Book> implements BookDao{
         int n=-1;
         conn= JdbcPool.getConnection();
         try {
-            ps=conn.prepareStatement(Sql.insertBook);
+         ps=conn.prepareStatement(Sql.insertBook);
         ps.setString(1,book.getBook_name());
         ps.setString(2,book.getBook_author());
         ps.setDouble(3,book.getBook_price());
@@ -73,13 +78,10 @@ public class BookDaoImpl extends BaseDao<Book> implements BookDao{
         try{
             conn= JdbcPool.getConnection();
         }catch (Exception e){
-        //    System.out.println(e.getMessage());
         }
         try {
-         //   System.out.println(values.length+"this is a test");
             ps=conn.prepareStatement(sql);
             for (int i=0;i<values.length;i++){
-//                System.out.println("values[i]"+values[i]);
                 ps.setObject(i+1,values[i]);
             }
             rs=ps.executeQuery();
@@ -102,9 +104,9 @@ public class BookDaoImpl extends BaseDao<Book> implements BookDao{
     }
 
     @Override
-    public List<Book> getBooksByName(String book_name) {
+    public List<Book> getBooksByName(String book_name) throws SQLException {
         //1写sql语句
-        String sql="select *from tb_book where book_name="+book_name;
+       String sql="select * from tb_book where book_name like '%"+book_name+"'";
         List<Book> beanList = getBeanList(sql);
         return beanList;
     }

@@ -4,6 +4,7 @@ package dao;
 
 import beans.Book;
 
+import java.sql.SQLException;
 import java.util.List;
 
 /*
@@ -13,13 +14,13 @@ public interface BookDao {
     public int modifyBook(String sql, Object... values);
     public List<Book> getBook(String sql, Object... values);
     public int deleteBook(int id);
-    public  List<Book> getBooksByName(String book_name);
+    public  List<Book> getBooksByName(String book_name) throws SQLException;
 
     //查询所有图书信息
     List<Book> getBooks1();
 
     //按照类别查询图书
-    List<Book> getBooksByKind(String kind);
+    List<Book> getBooksByKind(String kind,int fromtype);
 
 
 }

@@ -8,9 +8,7 @@
     <constant name="struts.enable.DynamicMethodInvocation" value="true"/>
 
     <package name="default" namespace="/" extends="struts-default">
-        <!--
-               name:表单请求
-            -->
+
           <action name="Login" class="Actions.LoginAction" method="login">
             <!--响应结果type：响应类型 默认是dispatcer 转发                      &amp;id=${user.id}-->
             <result type="redirect" name="login_success">index.jsp?username=${username}</result>
@@ -46,7 +44,7 @@
 
         </action>
         <action name="displayBook_kind" class="Actions.BookAction" method="displayBookKindAction">
-            <result type="redirect" name="success">pages/book/search_success.jsp</result>
+            <result type="redirect" name="success">index.jsp</result>
             <result type="redirect" name="fail">index.jsp</result>
 
         </action>
@@ -127,7 +125,6 @@
         <action name="Search" class="Actions.BookAction" method="searchByName">
             <result type="redirect" name="success">
                 <param name="location">index.jsp</param>
-                <!--<param name="booklist">${booklist}</param>-->
             </result>
             <result type="redirect" name="fail">
                 <param name="location">index.jsp</param>

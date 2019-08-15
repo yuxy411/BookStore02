@@ -27,7 +27,7 @@
 </div>
 
 <%--<div id="main" >--%>
-    <%--<%@include file="/index.jsp"%>--%>
+    <%--<%@include file="/index.html"%>--%>
 <%--</div>--%>
 
     <div id="bottom">
